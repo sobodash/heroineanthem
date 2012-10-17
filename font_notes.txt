@@ -1,0 +1,14 @@
+Font Sizes:
+  Font_10.wfn -  6x13 ASCII, 13x13 Big5
+  Font_14.wfn -  8x16 ASCII, 16x16 Big5
+  Font_16.wfn - 12x22 ASCII, 22x22 Big5
+
+Heroine Anthem uses some incredibly non-standard font sizes. Incredibly
+non-standard...
+
+Use the corresponding dumpers/inserters to extract fonts from the wfn
+files to monochrome bitmaps, then inject them back into the file.
+
+Sample replacement fonts included in this archive are the Solaris
+1024x768 console mode font (12x22) and my Windows Calligra font, adapted
+from an old DOS font, rendered onto 8x16 tiles (8x16).

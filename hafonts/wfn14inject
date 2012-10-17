@@ -1,0 +1,56 @@
+#!/usr/bin/php -q
+<?
+
+echo ("\nwfn14inject v1.0 (c) D 2003\n");
+set_time_limit(6000000);
+
+if ($argc < 3) { DisplayOptions(); die; }
+else { $in_file = $argv[1]; $out_file = $argv[2]; }
+
+print "Reading in $in_file...\n";
+
+$fd = fopen($in_file, "rb");
+fseek($fd, 62, SEEK_SET);
+$bitmap = strrev( fread($fd, filesize($in_file)-62) );
+fclose($fd);
+
+$ptr = 0;
+$bitplane = "";
+
+print "Converting bitmap to bitplane...\n";
+
+for ($k=0; $k<6; $k++) {
+	for ($i=0; $i<16; $i++) {
+		for ($z=0; $z<16; $z++) {
+			$tile[$z][$i] = substr($bitmap, $ptr, 1); $ptr++;
+		}
+	}
+	for ($z=15; $z>-1; $z--) {
+		for ($i=0; $i<16; $i++) {
+			$bitplane .= $tile[$z][$i];
+		}
+	}
+	unset($tile);
+}
+
+print "Reading in $out_file...\n";
+
+$fd = fopen($out_file, "rb");
+$top = fread($fd, 0x219);
+fseek($fd, 0x219 + 1536, SEEK_SET);
+$bottom = fread($fd, filesize($out_file)-(0x219 + 1536));
+fclose($fd);
+
+print "Injecting new bitplane data...\n";
+
+$fo = fopen($out_file, "wb");
+fputs($fo, $top . $bitplane . $bottom);
+fclose($fo);
+
+echo ("$out_file was written!\n\n");
+
+function DisplayOptions() {
+	echo ("Injects a bitmap from wfn14dump back into the Font_14.wfn file.\n  usage: wfn14inject [input_bmp] [output_wfn]\n\n");
+}
+
+?>

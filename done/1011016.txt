@@ -1,0 +1,159 @@
+¶„ÃH<>
+
+¶„ÃH<>
+
+es103a02@.APS,1<>
+
+Edda<>
+
+I won't let go!<>
+
+hdsrrbf.psd<>
+
+0,1,1<>
+
+Edda<>
+
+I'm going to pull you up!<>
+
+hdsrrbf.psd<>
+
+1,0,1<>
+
+String<>
+
+0,0,0<>
+
+¶„ÃH<>
+
+es104a01p.APS,1<>
+
+¶„ÃH<>
+
+es104a02@.APS,1<>
+
+¶„ÃH<>
+
+es103a02@.APS,1<>
+
+Edda<>
+
+(This is horrible ...!
+My arms ... They're just not
+strong enough ...!)<>
+
+hdagrff.psd<>
+
+0,1,2<>
+
+Boy<>
+
+Miss ...
+Don't worry about me!<>
+
+H989EMRA.psd<>
+
+0,0,1<>
+
+Edda<>
+
+I can't hold on!<>
+
+hdsrrbf.psd<>
+
+1,1,2<>
+
+Edda<>
+
+I can't hold on!<>
+
+hdsrrbf.psd<>
+
+2,0,2<>
+
+0,0,0<>
+
+¶„ÃH<>
+
+es103a02@.APS,1<>
+
+Edda<>
+
+(This is horrible ...!
+My arms ... They're just not
+strong enough ...!)<>
+
+hdagrff.psd<>
+
+0,1,2<>
+
+Boy<>
+
+Don't worry about me!<>
+
+H989EMRA.psd<>
+
+0,0,1<>
+
+Edda<>
+
+I can't hold on!<>
+
+hdsrrbf.psd<>
+
+1,1,2<>
+
+¶„ÃH<>
+
+es104a01p.APS,1<>
+
+¶„ÃH<>
+
+es104a02@.APS,1<>
+
+Edda<>
+
+I can't hold on!<>
+
+hdsrrbf.psd<>
+
+2,0,2<>
+
+¶„ÃH<>
+
+¶„ÃH<>
+
+¶„ÃH<>
+
+<>
+
+Edda's Basic Stats +5<>
+
+<>
+
+0,0,0<>
+
+Game-03s.aps<>
+
+0,0,0<>
+
+1,0,1<>
+
+Game-03@.aps<>
+
+0,0,0<>
+
+0,0,1<>
+
+Game-03e.aps<>
+
+0,0,0<>
+
+1,0,0<>
+
+*.aps<>
+
+0,0,0<>
+
+1,0,0<>
+

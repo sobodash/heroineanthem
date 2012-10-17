@@ -1,0 +1,78 @@
+#!/usr/bin/php -q
+<?
+
+echo ("\nwfn10dump v1.0 (c) D 2003\n");
+set_time_limit(6000000);
+
+if ($argc < 3) { DisplayOptions(); die; }
+else { $in_file = $argv[1]; $out_file = $argv[2]; }
+
+print "Opening $in_file as stream...\n";
+
+$fd = fopen($in_file, "rb");
+$bitmap = "";
+fseek($fd, 0x1b8, SEEK_SET);
+
+print "Converting to bitmap...\n";
+
+for ($k=0; $k<6; $k++) {
+	for ($i=0; $i<16; $i++) {
+		for ($z=0; $z<13; $z++) {
+			$line[$i][$z] = fread($fd, 1);
+		}
+	}
+	for ($z=0; $z<13; $z++) {
+		for ($i=15; $i>-1; $i--) {
+			$bitmap .= strrev($line[$i][$z]);
+		}
+	}
+}
+
+print "Creating bitmap header...\n";
+	
+// Header {
+//   2 bytes = "BM" string
+//   4 bytes = File size (little endian)
+//   2 bytes = reserved null (0x0)
+//   2 bytes = reserved null (0x0)
+//   4 bytes = start of bitmap data (little endian)
+// }
+$header = "BM" . pack("V*", strlen($bitmap)+62) . chr(0) . chr(0) . chr(0) . chr(0) . pack("V*", 62);
+
+// Info Header {
+//   4 bytes = Info header size (little endian) dec(40)
+//   4 bytes = Image width (little endian)
+//   4 bytes = Image height (little endian)
+//   2 bytes = Bit planes (little endian) 0x0100
+//   2 bytes = Bit depth (little endian) 0x0100
+//   4 bytes = Compression type [set to 0x00000000)
+//   4 bytes = Image size (little endian) [filesize - total header]
+//   4 bytes = X Pixels per Meter [0x00000000]
+//   4 bytes = Y Pixels per Meter [0x00000000]
+//   4 bytes = Colors used [0x00000000]
+//   4 bytes = Important colors [0x00000000]
+// }
+$info_header = pack("V*", 40) . pack("V*", 128) . pack("V*", 78) . chr(1) . chr(0) .
+               chr(1) . chr(0) . pack("V*", 0) . pack("V*", strlen($bitmap)) . pack("V*", 0) .
+               pack("V*", 0) . pack("V*", 0) . pack("V*", 0) . pack("V*", 0);
+
+// RGPBQUAD Struct {
+//   1 byte = RGB Blue [0xFF]
+//   1 byte = RGB Green [0xFF]
+//   1 byte = RGB Red [0xFF]
+//   1 byte = Reserved null [0x00]
+// }
+$rgbquad = chr(0xff) . chr(0xff) . chr(0xff) . chr(0);
+
+$fo = fopen($out_file, "wb");
+fputs($fo, $header . $info_header . $rgbquad . strrev($bitmap));
+fclose($fo);
+fclose($fd);
+
+print "$out_file was written!\n\n";
+
+function DisplayOptions() {
+	echo ("Extracts the 6x13 font from Font_10.wfn to a bitmap graphic for editing.\n  usage: wfn10dump [input_wfn] [output_bmp]\n\n");
+}
+
+?>

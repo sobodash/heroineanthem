@@ -1,0 +1,65 @@
+區域名<>
+
+1355,386,1454,580<>
+
+隊伍<>
+
+Edda<>
+
+Ah ...!<>
+
+hdsrrbf.psd<>
+
+0,1,1<>
+
+Edda<>
+
+It's Zawudashi ...
+Is this the monster that
+devoured everyone?<>
+
+hdsrrcf.psd<>
+
+1,1,1<>
+
+Edda<>
+
+This isn't good!
+If we keep going this way,
+we'll be eaten too!<>
+
+hdsrrbf.psd<>
+
+1,0,1<>
+
+區域名<>
+
+艾妲<>
+
+艾妲<>
+
+Edda<>
+
+If we go any further, we're
+dead for sure!<>
+
+hdsrrbf.psd<>
+
+0,0,1<>
+
+艾妲<>
+
+艾妲<>
+
+區域名<>
+
+怪物<>
+
+1839,353,2398,600<>
+
+怪物<>
+
+Eddle_scream02.wav<>
+
+Eddle_scream01.wav<>
+
